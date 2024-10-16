@@ -213,7 +213,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [896, 284]
+    coordinate: [1144, 292.0]
     rotation: 0
     state: enabled
 - name: gsm_clock_offset_control_0
@@ -231,7 +231,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [552, 411]
+    coordinate: [568, 484.0]
     rotation: 180
     state: enabled
 - name: gsm_control_channels_decoder_0
@@ -246,7 +246,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1264, 289]
+    coordinate: [1568, 296.0]
     rotation: 0
     state: enabled
 - name: gsm_control_channels_decoder_0_0
@@ -261,7 +261,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1264, 345]
+    coordinate: [1704, 384.0]
     rotation: 0
     state: enabled
 - name: gsm_decryption_0
@@ -278,7 +278,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1104, 333]
+    coordinate: [1448, 372.0]
     rotation: 0
     state: enabled
 - name: gsm_input_0
@@ -297,24 +297,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [488, 305]
-    rotation: 0
-    state: enabled
-- name: gsm_message_printer_1
-  id: gsm_message_printer
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    prepend_fnr: 'False'
-    prepend_frame_count: 'False'
-    prepend_string: '""'
-    print_gsmtap_header: 'False'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1680, 460.0]
+    coordinate: [504, 368.0]
     rotation: 0
     state: enabled
 - name: gsm_receiver_0
@@ -333,7 +316,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [672, 289]
+    coordinate: [712, 312.0]
     rotation: 0
     state: enabled
 - name: gsm_sdcch8_demapper_0
@@ -349,7 +332,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [896, 340]
+    coordinate: [1152, 380.0]
     rotation: 0
     state: enabled
 - name: import_0
@@ -378,26 +361,6 @@ blocks:
     coordinate: [1016, 148.0]
     rotation: 0
     state: enabled
-- name: network_socket_pdu_0
-  id: network_socket_pdu
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    host: 127.0.0.1
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    mtu: '1500'
-    port: serverport
-    tcp_no_delay: 'False'
-    type: UDP_SERVER
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1528, 172.0]
-    rotation: 0
-    state: true
 - name: network_socket_pdu_1
   id: network_socket_pdu
   parameters:
@@ -415,7 +378,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1664, 108.0]
+    coordinate: [2016, 252.0]
     rotation: 0
     state: true
 - name: osr
@@ -530,7 +493,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [488, 187]
+    coordinate: [448, 168.0]
     rotation: 0
     state: enabled
 - name: rtlsdr_source_0
@@ -996,12 +959,12 @@ connections:
 - [gsm_input_0, '0', gsm_receiver_0, '0']
 - [gsm_receiver_0, C0, gsm_bcch_ccch_demapper_0, bursts]
 - [gsm_receiver_0, C0, gsm_sdcch8_demapper_0, bursts]
+- [gsm_receiver_0, CX, gsm_bcch_ccch_demapper_0, bursts]
+- [gsm_receiver_0, CX, gsm_sdcch8_demapper_0, bursts]
 - [gsm_receiver_0, measurements, gsm_clock_offset_control_0, measurements]
 - [gsm_sdcch8_demapper_0, bursts, gsm_decryption_0, bursts]
-- [network_socket_pdu_0, pdus, gsm_message_printer_1, msgs]
 - [rtlsdr_source_0, '0', blocks_rotator_cc_0, '0']
 - [soapy_custom_source_0, '0', blocks_rotator_cc_0, '0']
 
 metadata:
   file_format: 1
-  grc_version: v3.11.0.0git-46-g614681ba

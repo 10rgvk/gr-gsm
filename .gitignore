@@ -10,3 +10,4 @@ debian/tmp/
 debian/files
 .directory
 .idea
+.cache/

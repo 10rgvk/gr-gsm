@@ -114,7 +114,7 @@ class multiarfcns_receiver(gr.hier_block2, Qt.QWidget):
 
                 qtgui_waterfall_sink_x.set_intensity_range(-90, -30)
 
-                _qtgui_waterfall_sink_x_win = sip.wrapinstance(qtgui_waterfall_sink_x.pyqwidget(), Qt.QWidget)
+                _qtgui_waterfall_sink_x_win = sip.wrapinstance(qtgui_waterfall_sink_x.qwidget(), Qt.QWidget)
                 self.qtgui_waterfall_sinks_x_win.append(_qtgui_waterfall_sink_x_win)
                 
                 self.top_grid_layout.addWidget(_qtgui_waterfall_sink_x_win, int(i/3), i%3, 1, 1)

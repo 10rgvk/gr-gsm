@@ -58,8 +58,8 @@ outputs:
     dtype: message
 
 templates:
-    imports: import grgsm
-    make: "grgsm.multiarfcns_receiver(\n    arfcns=${ arfcns },\n    center_freq=${ center_freq\
+    imports: from gnuradio import gsm
+    make: "gsm.multiarfcns_receiver(\n    arfcns=${ arfcns },\n    center_freq=${ center_freq\
         \ },\n    osr=${ osr },\n    tseq=${ tseq },\n    wide_samp_rate=${ wide_samp_rate\
         \ },\n    gui=${ gui },\n)\n<% win = 'self.%s'%id %>\n${ gui_hint() % win }"
     callbacks:
